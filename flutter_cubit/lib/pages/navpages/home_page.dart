@@ -43,24 +43,22 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           child: AppLargeText(text: "Discover"),
         ),
         const SizedBox(height: 30),
-        Container(
-          child: Align(
-            alignment: Alignment.centerLeft,
-            child: TabBar(
-                labelPadding: const EdgeInsets.only(left: 20, right: 20),
-                controller: _tabController,
-                labelColor: Colors.black,
-                unselectedLabelColor: Colors.grey,
-                isScrollable: true,
-                indicatorSize: TabBarIndicatorSize.label,
-                indicator:
-                    CircleTabIndicator(color: AppColors.mainColor, radius: 3),
-                tabs: const [
-                  Tab(text: "Places"),
-                  Tab(text: "Inspiration"),
-                  Tab(text: "Emotios")
-                ]),
-          ),
+        Align(
+          alignment: Alignment.centerLeft,
+          child: TabBar(
+              labelPadding: const EdgeInsets.only(left: 20, right: 20),
+              controller: _tabController,
+              labelColor: Colors.black,
+              unselectedLabelColor: Colors.grey,
+              isScrollable: true,
+              indicatorSize: TabBarIndicatorSize.label,
+              indicator:
+                  CircleTabIndicator(color: AppColors.mainColor, radius: 3),
+              tabs: const [
+                Tab(text: "Places"),
+                Tab(text: "Inspiration"),
+                Tab(text: "Emotios")
+              ]),
         ),
         Container(
           padding: const EdgeInsets.only(left: 20),
