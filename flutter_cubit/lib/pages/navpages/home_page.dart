@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_cubit/misc/colors.dart';
 import 'package:flutter_cubit/widgets/app_large_text.dart';
+import 'package:flutter_cubit/widgets/app_text.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -47,6 +48,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           alignment: Alignment.centerLeft,
           child: TabBar(
               labelPadding: const EdgeInsets.only(left: 20, right: 20),
+              dividerHeight: 0,
               controller: _tabController,
               labelColor: Colors.black,
               unselectedLabelColor: Colors.grey,
@@ -85,7 +87,58 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
             Text("hi2"),
             Text("hi3"),
           ]),
-        )
+        ),
+        SizedBox(height: 30),
+        Container(
+          margin: const EdgeInsets.only(left: 20, right: 20),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              AppLargeText(
+                text: "Explore more",
+                size: 22,
+              ),
+              AppText(
+                text: "See all",
+                color: AppColors.textColor1,
+              )
+            ],
+          ),
+        ),
+        SizedBox(height: 10),
+        Container(
+            height: 120,
+            width: double.maxFinite,
+            margin: const EdgeInsets.only(left: 20),
+            child: ListView.builder(
+              itemCount: 4,
+              scrollDirection: Axis.horizontal,
+              itemBuilder: ((context, index) {
+                return Container(
+                  margin: const EdgeInsets.only(right: 30),
+                  child: Column(
+                    children: [
+                      Container(
+                        width: 80,
+                        height: 80,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: Colors.white,
+                            image: DecorationImage(
+                                image: AssetImage("img/mountain.jpeg"),
+                                fit: BoxFit.cover)),
+                      ),
+                      Container(
+                        child: AppText(
+                          text: "Key",
+                          color: AppColors.textColor1,
+                        ),
+                      )
+                    ],
+                  ),
+                );
+              }),
+            ))
       ]),
     );
   }
